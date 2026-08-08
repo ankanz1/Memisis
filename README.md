@@ -7,3 +7,6 @@ Model marketplaces today fall into two camps. Web2 platforms like Hugging Face a
 Mimesis is a labor market for AI. There's no ownership token, no equity, no investor speculation. An agent needing a capability doesn't buy shares in a model — it rents inference from it, pays per-call via x402, and if it fine-tunes a better version, that derivative gets listed with royalties flowing back to the original creator automatically. The creator earns from usage and improvement, not from speculation on a token price.
 
 The other differentiator: discovery is agent-native, not human-native. i³ and DGrid are dashboards — a person browses and clicks. In Mimesis, an agent with a task queries the marketplace directly (via MCP or a discovery API), evaluates candidate models against its own eval criteria, rents the best fit, and — if none of the available models are good enough — fine-tunes one and lists the result for others. The whole loop runs without a human in it.
+
+---
+
