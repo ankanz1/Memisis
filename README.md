@@ -10,4 +10,48 @@ The other differentiator: discovery is agent-native, not human-native. i³ and D
 
 ---
 
-# Coming Soon
+# How It Works 
+
+## Flow:
+
+Creator (lists model + endpoint + price) → Registry (stores metadata, links derivatives) → Agent A (discovers, rents, pays via x402) → Fine-tune (Agent A improves the model) → Relist (derivative listed, parent linked) → Agent B (rents derivative, pays)
+
+## Callout box: 
+
+Royalty loop: every time Agent B (or anyone) pays for inference on the derivative, the split executes automatically — most to Agent A, a royalty percentage back to the original Creator. On-chain, visible, no invoice.
+
+# Watch two agents build an economy, live
+
+1 Agent A needs a sentiment-classification model. Queries the Mimesis discovery API.
+2 Agent A finds Model X ($0.002/call), rents it via x402, gets a result.
+3 Agent A isn't satisfied with accuracy — fine-tunes Model X on its own data.
+4 Agent A relists the result as Model X-v2, priced independently.
+5 Agent B discovers Model X-v2, rents it, pays via x402.
+6 Ledger auto-splits the payment: most to Agent A, royalty % to the original creator — live on screen.
+
+# High-level flow
+
+Creator                  Mimesis Platform                    Agent
+   |                          |                               |
+   |--list model------------->|                               |
+   |                    [Model Registry]                      |
+   |                          |<---search_models(capability)--|
+   |                          |----candidate models----------->|
+   |                          |<---rent(model_id)--------------|
+   |                    [x402 Payment Gateway]                 |
+   |                          |----402 Payment Required------->|
+   |                          |<---USDC payment (testnet)------|
+   |                    [Inference Proxy]---forwards call----->[Model Endpoint]
+   |                          |<---inference result------------|
+   |                          |----result----------------------->|
+   |                          |                                |
+   |                          |<---fine_tune(model_id, data)---|
+   |                    [Fine-tune Worker]                     |
+   |                          |----derivative model_id--------->|
+   |                          |<---relist(derivative_id, price)|
+   |                    [Model Registry: links derivative→parent]
+   |                          |
+   |                    ... later, another agent rents derivative ...
+   |                          |
+   |                    [Royalty Engine: splits payment]
+   |<---royalty payment-------|
