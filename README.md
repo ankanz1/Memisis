@@ -42,14 +42,13 @@ Royalty loop: every time Agent B (or anyone) pays for inference on the derivativ
 
 Mimesis is an agent-native marketplace where AI agents discover models, rent inference per-call via [x402](https://www.x402.org/), fine-tune models they rent, and relist the improved version — with royalties flowing back to the original creator automatically, on-chain.
 
+<!--
 ## Table of contents
 - [Overview](#overview)
 - [Architecture](#architecture)
 - [Core components](#core-components)
 - [Tech stack](#tech-stack)
-- [Getting started](#getting-started)
-
-
+-->
 ## Architecture
 
 ### High-level flow
